@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: rgb(238, 238, 238);
+            
+        }
+        .container__texto{
+            text-align: center;
+            
+        }
+        h1{
+            color:rgb(21, 53, 112);
+            font-family:'Chakra Petch', sans-serif;
+            font-size: 64px;
+            padding-bottom:1rem;
+        }
+
+        h2{
+            margin: 35px 0 16px 0;
+            color:rgb(38, 95, 41);
+            font-family: 'Chakra Petch', sans-serif;
+            font-size: 72px;
+            padding-bottom: 1rem;
+        }
+        .container__button{
+            box-shadow:10px 10px 10px 5px rgb(100, 100, 100);
+            border-radius: 25px;
+            padding:16px 24px;
+            width:100%;
+            font-size:24px;
+            font-weight: 700;
+            border:solid black;
+            margin:15px;
+        }
+
+        .container__buttons{
+            display:flex;
+            padding-bottom: 2em;
+        }
+    </style>
+</head>
+<body>
+    <div class = 'container__texto'>
+        <h1 id='contador'>Contador</h1>
+        <h2></h2>
+        <p class = 'texto__paragrafo'></p>
+    </div>
+    <div class = 'teste container__buttons'>
+        <button onclick='aumentarNumero()' class='container__button'>Aumentar</button>
+        <button onclick='diminuirNumero()' class='container__button'>Diminuir</button>
+        <button onclick='zerarNumero()' class='container__button'>Zerar</button>
+        <button onclick='adicionarDez()' class='container__button'>Adiconar 10</button>
+    </div>
+
+    <script>
+        let num = 0;
+        function numeroTela(tag, texto){
+            let campo = document.querySelector(tag);
+            campo.innerHTML = texto;
+        }
+
+        numeroTela('h2', '0')
+        
+        function aumentarNumero(){
+            num++
+            let textoNum = `${num}`
+            console.log(textoNum);
+            numeroTela('h2', textoNum);
+        }
+
+        function diminuirNumero(){
+            if (num == 0){
+                num = 0
+            }else{
+                num--
+                let textoNum = `${num}`;
+                numeroTela('h2', textoNum);
+            }
+        }
+
+        function zerarNumero(){
+            num = 0;
+            let textoNum = `${num}`
+            numeroTela('h2',textoNum)
+        }
+
+        function adicionarDez(){
+            num +=10;
+            let textoNum = `${num}`;
+            numeroTela('h2', textoNum)
+        }
+    </script>
+</body>
+</html>
